@@ -36,13 +36,9 @@
         </form>
     </div>
 </nav>
-<p>
-    <c:if test='${requestScope["message"] != null}'>
-        <span class="message">${requestScope["message"]}</span>
-    </c:if>
-</p>
 <div class="container">
-    <button class="btn btn-primary mt-4" onclick="window.location.href='/student?action=create'">Thêm</button>
+    <p style="color: blue">${message}</p>
+    <button class="btn btn-primary mt-4" onclick="window.location.href='/student/create'">Thêm</button>
     <table class="table table-hover">
         <thead>
         <tr>
@@ -73,7 +69,7 @@
                     </c:choose>
                 </td>
                 <td>
-                    <a href="/student?action=edit&id=${student.id}" class="btn btn-warning">edit</a>
+                    <button class="btn btn-warning" onclick="window.location.href='/student/update/${student.id}'">Sửa</button>
                     <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal${student.id}">Xóa</button>
                     <div class="modal fade" id="deleteModal${student.id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">

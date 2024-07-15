@@ -21,4 +21,33 @@ public class StudentRepository implements IStudentRepository {
     public List<Student> findAll() {
         return students;
     }
+
+    @Override
+    public void update(Long idEdit,Student studentEdit) {
+        for (int i = 0; i < students.size(); i++) {
+            if (students.get(i).getId() == idEdit) {
+                Student editStudent = students.get(i);
+                editStudent.setName(studentEdit.getName());
+                editStudent.setAddress(studentEdit.getAddress());
+                editStudent.setScore(studentEdit.getScore());
+                return;
+            }
+        }
+    }
+
+    @Override
+    public void save(Student student) {
+        student.setId(students.get(students.size()-1).getId() + 1);
+        students.add(student);
+    }
+
+    @Override
+    public Student findById(Long id) {
+        for (Student student : students) {
+            if (student.getId() == id) {
+                return student;
+            }
+        }
+        return null;
+    }
 }

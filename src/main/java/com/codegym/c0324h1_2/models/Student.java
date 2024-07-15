@@ -9,6 +9,12 @@ public class Student {
     public Student() {
     }
 
+    public Student(String name, String address, Float score) {
+        this.name = name;
+        this.address = address;
+        this.score = score;
+    }
+
     public Student(long id, String name, String address, Float score) {
         this.id = id;
         this.name = name;

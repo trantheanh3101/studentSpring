@@ -6,4 +6,10 @@ import java.util.List;
 
 public interface IStudentService {
     List<Student> findAll();
+
+    void save(Student student);
+
+    Student findById(Long id);
+
+    void update(Long idEdit,Student studentEdit);
 }
