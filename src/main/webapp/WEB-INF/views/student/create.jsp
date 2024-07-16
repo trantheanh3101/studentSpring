@@ -14,6 +14,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
     <title>Danh sách học sinh</title>
@@ -39,21 +40,21 @@
     </div>
 </nav>
 <div class="container">
-    <form method="post">
+    <form:form method="post" modelAttribute="student">
         <div class="mb-3">
             <label for="name" class="form-label">Họ và tên</label>
-            <input type="text" class="form-control" id="name" name="name" required maxlength="100" minlength="5">
+            <form:input type="text" class="form-control" id="name" path="name"/>
         </div>
         <div class="mb-3">
             <label for="address" class="form-label">Dia chi</label>
-            <input type="text" class="form-control" id="address" name="address" required>
+            <form:input type="text" class="form-control" id="address" path="address"/>
         </div>
         <div class="mb-3">
             <label class="form-label" for="score">Điẻm</label>
-            <input class="form-control" id="score" name="score" min="0" max="10">
+            <form:input type="number" class="form-control" id="score" path="score"/>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    </form:form>
 </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
